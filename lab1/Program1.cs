@@ -11,6 +11,9 @@ enum ROMAN_LETTERS
 
 public class RomanLettersMath
 {
+    static readonly Dictionary<string, int> romanLetters =
+        Enum.GetValues(typeof(ROMAN_LETTERS)).Cast<ROMAN_LETTERS>()
+        .ToDictionary(letter => letter.ToString(), letter => (int)letter);
 
     public static void Main()
     {
@@ -31,10 +34,6 @@ public class RomanLettersMath
     }
     public int RomanLetterConverter(string value) 
     {
-        Dictionary<string, int> romanLetters = 
-        Enum.GetValues(typeof(ROMAN_LETTERS)).Cast<ROMAN_LETTERS>()
-        .ToDictionary(letter => letter.ToString(), letter => (int)letter);
-
         string[] letters = value.Split(" ");
         int convertedEnd = 0;
         foreach (char letter in value)
