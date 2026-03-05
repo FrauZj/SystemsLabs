@@ -36,13 +36,13 @@ public class RomanLettersMath
         .ToDictionary(letter => letter.ToString(), letter => (int)letter);
 
         string[] letters = value.Split(" ");
-        int actualValue;
         int convertedEnd = 0;
         foreach (char letter in value)
         {
             string stringLetter = letter.ToString();
             if (romanLetters.ContainsKey(stringLetter))
             {
+                int actualValue;
                 romanLetters.TryGetValue(stringLetter, out actualValue);
                 convertedEnd += actualValue;
 
